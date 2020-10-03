@@ -1,0 +1,26 @@
+NPM'S
+- Express, FW de Node, esccritura sencilla y prof
+- Exp Handlebars, motor de plantillas dentro de Express (manera de extender el html como Vue)
+- Exp Sessions, sesiones dentro del sv, se guarda el login en una sesion
+- Methods override, extiende la funcionalidad de los formularios (que envian POST, GET) permite enviar metodos PUT y DELETE
+- Moongose, modulo de conexion que permite conectarme a MongoDB 
+- Passport, autenticacion en bd
+- Passport-local
+- Bcryptjs: cifra contraseña en hash
+- Connect-flash: mensajes en vistas
+
+SRC:
+Todo el codigo (back y front)
+
+Carpetas:
+Views, vistas html
+Routes, url o rutas del servidor
+Public, archivos estaticos, img fuentes css js, etc
+Models, como van a lucir los datos, modelo, usuarios, notas
+Helpers, funciones para que sv pueda utilizar, tipo libreria
+Config, cosas de configuracion, del entorno, por ej modulos y sus configuraciones
+
+
+
+
+
