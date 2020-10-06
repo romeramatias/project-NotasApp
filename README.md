@@ -1,5 +1,7 @@
 # Proyecto Notas Web App
-Proyecto de Web App de Notas realizado en NodeJS con ExpressJS, Handlebars y MongoDB como base de datos
+Aplicacion web de Notas, CRUD con base de datos y manejo de sesiones.
+Realizada con Node.JS, MongoDB y librerias NPM como Express, Handlebars, Passport, Connect Flash y Bcryptjs.
+Edicion de estilos CSS con libreria Bootstrap y tema de Bootswatch
 
 ![Index](https://github.com/romeramatias/project-NotasApp/blob/master/src/public/1.jpg)
 ![Login](https://github.com/romeramatias/project-NotasApp/blob/master/src/public/2.jpg)
