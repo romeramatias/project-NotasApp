@@ -20,6 +20,22 @@ Models, como van a lucir los datos, modelo, usuarios, notas
 Helpers, funciones para que sv pueda utilizar, tipo libreria
 Config, cosas de configuracion, del entorno, por ej modulos y sus configuraciones
 
+CSS:
+Gradiantes en CSS https://uigradients.com/#Petrichor
+
+Editar Notas:
+Tiene que redireccionar a la nota con id, se la agrego al hbs
+Al concatenarle el id, creo una ruta para cada una de las notas
+el :id se ve que agarra el id
+para poder editar la nota tengo que primero obtenerla
+y se la envio con los datos originales
+para actualizar la nota hay que hacer una nueva ruta y  lo del input oculto para que sea
+metodo put y no post
+de ahi con el req.body agarro los datos que me llegan
+
+Flash mensajes:
+importar connect flash, agregar a middleware
+
 
 
 

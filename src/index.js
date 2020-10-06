@@ -3,6 +3,8 @@ const path = require("path");
 const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 const session = require("express-session");
+const flash = require("connect-flash");
+const passport = require("passport");
 
 // Session este modulo es para mantener sesiones, guardar los datos en la app
 // Method override extiende la funcionalidad de los formularios
@@ -12,7 +14,8 @@ const session = require("express-session");
 
 // INICIALIZACIONES
 const app = express();
-require('./database.js')
+require("./database.js");
+require("./config/passport.js");
 
 // Dividimos el archivo en distintas secciones
 //-------------------------------------------------------------------------------------------------------------------------------
@@ -61,28 +64,49 @@ app.use(methodOverride("_method"));
 // que me van a permitir guardar las sesiones (autenticar y guardar los datos)
 app.use(session({ secret: "matiasapp", resave: true, saveUninitialized: true }));
 
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect Flash, para enviar mensajes a las vistas
+app.use(flash());
+
 //-------------------------------------------------------------------------------------------------------------------------------
 // GLOBAL VARIABLES (Datos accesibles a toda la app)
 //-------------------------------------------------------------------------------------------------------------------------------
+// Para que todas las vistas tengan acceso, creamos una variable global que almacene esos mensajes
+app.use((req, res, next) => {
+   res.locals.mens_exito = req.flash("mens_exito");
+   res.locals.mens_error = req.flash("mens_error");
+   // Mensajes flash de passport se llaman error
+   res.locals.error = req.flash("error");
+   let usuario = null;
+   if (req.user) {
+      usuario = JSON.parse(JSON.stringify(req.user));
+   }
+   res.locals.usuario = usuario;
+   //res.locals.usuario = req.user || null;
+   next();
+});
 
 //-------------------------------------------------------------------------------------------------------------------------------
 // ROUTES
 //-------------------------------------------------------------------------------------------------------------------------------
 // Urls que iran dentro de la carpeta routes
-// En cada uno de los .js iran las url del sv. 
+// En cada uno de los .js iran las url del sv.
 // Index las urls de la pagina principal, ej about
 // Notes las urls para crear y manejar sus notas
 // Users las urls en donde se autentica, sign in, sign out, sign up
 // - Con esto le estoy indicando al sv que ahi estan las rutas
-app.use(require('./routes/index.js'))
-app.use(require('./routes/notes.js'))
-app.use(require('./routes/users.js'))
+app.use(require("./routes/index.js"));
+app.use(require("./routes/notas.js"));
+app.use(require("./routes/usuarios.js"));
 
 //-------------------------------------------------------------------------------------------------------------------------------
 // STATIC FILES
 //-------------------------------------------------------------------------------------------------------------------------------
 // - Al igual que hice antes establecemos la carpeta public con archivos estaticos
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, "public")));
 
 //-------------------------------------------------------------------------------------------------------------------------------
 // SERVER ESCUCHANDO

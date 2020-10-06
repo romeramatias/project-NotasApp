@@ -1,0 +1,48 @@
+body {
+   background: #16222a; /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #3a6073, #16222a); /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #3a6073, #16222a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+   margin: 0;
+   margin-bottom: 40px;
+}
+
+.dev-icons .list-inline-item i:hover {
+   color: #a3a3a3;
+}
+
+.list-inline {
+   padding-left: 0;
+   list-style: none;
+}
+
+.list-inline-item {
+   display: inline-block;
+}
+
+.list-inline-item:not(:last-child) {
+   margin-right: 0.5rem;
+}
+.dev-icons {
+   font-size: 2rem;
+   color: #cfcfcf;
+}
+
+.dev-icons .list-inline-item i:hover {
+   color: #df691a;
+}
+
+html {
+   min-height: 100%;
+   position: relative;
+}
+
+footer {
+   background-color: black;
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 40px;
+   color: white;
+}

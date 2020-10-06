@@ -1,0 +1,27 @@
+{{!-- Creamos una fila que dentro va a tener multiples tarjetas que van a estar dentro de columnas
+para poder ir poniendo muchas notas --}}
+<div class="row">
+    {{#each notas}}
+    <div class="col-md-3 my-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between align-items-center">
+                    {{titulo}} <a href="/notas/editar/{{_id}}"><i class="fas fa-edit"></i></a>
+                </h4>
+                <p> {{descripcion}}</p>
+                <form action="/notas/borrar/{{_id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-info btn-block">Eliminar Nota</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="card mx-auto">
+        <div class="card-body">
+            <p class="lead">{{usuario.nombre}} No hay notas 😴😴</p>
+            <a href="/notas/agregar" class="btn btn-info btn-block">Ingresar una nota!</a>
+        </div>
+    </div>
+    {{/each}}
+</div>

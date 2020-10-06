@@ -5,12 +5,12 @@ const router = require("express").Router();
 // Permite crear rutas del servidor
 // Creamos la ruta index, el '/' seria la pagina inicial
 router.get('/', (req, res) => {
-    res.send("Index")
+    res.render("index")
 })
 
 
-router.get('/about', (req, res) => {
-    res.send("About")
+router.get('/sobremi', (req, res) => {
+    res.render("sobremi")
 })
 
 module.exports = router;
