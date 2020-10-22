@@ -1,6 +1,6 @@
 # Proyecto Notas Web App
 Aplicacion web de Notas, CRUD con base de datos y manejo de sesiones.
-Realizada con Node.JS, MongoDB y librerias NPM como Express, Handlebars, Passport, Connect Flash y Bcryptjs.
+Realizada con Node.JS, MongoDB (Compass), librerias NPM como Express, Handlebars, Passport, Mongoose, Connect Flash y Bcryptjs.
 Edicion de estilos CSS con libreria Bootstrap y tema de Bootswatch
 
 ![Index](https://github.com/romeramatias/project-NotasApp/blob/master/src/public/1.jpg)
